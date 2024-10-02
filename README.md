@@ -1,16 +1,13 @@
 Van 3 ajtó
 
 1-et megjelöl a user a gombra kattintással, ezt kinyithatja, de:
-
-    megmutat egy rosszat a másik két NEM megjelölt közül
-
-    megkérdezi a játékost egy felugró ablakban (Jop), hogy ki szeretné-e cserélni a másik lehetséges jó ajtóra, VAGY marad az 1. választásánál
+- megmutat egy rosszat a másik két NEM megjelölt közül
+- megkérdezi a játékost egy felugró ablakban (Jop), hogy ki szeretné-e cserélni a másik lehetséges jó ajtóra, VAGY marad az 1. választásánál
 
 Ezután megkapja ami mögötte van
 
-statisztika: hányszor cserélt a user, hányszor nem
-
-statisztika: cseréléssel, és cserélés nélkül hányszor sikerült eltalálnia
+- statisztika: hányszor cserélt a user, hányszor nem
+- statisztika: cseréléssel, és cserélés nélkül hányszor sikerült eltalálnia
 
 ![Kep a programrol](Ajtos_prg.png?raw=true "ProgramGUI")
 
