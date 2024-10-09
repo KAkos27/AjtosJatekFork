@@ -1,19 +1,56 @@
 package vezerlo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import modell.AjtosJatek;
 import nezet.GuiNezet;
 
 public class AjtosJatekVezerlo {
 
+    private GuiNezet nezet;
+    private AjtosJatek modell;
+
     public AjtosJatekVezerlo() {
-        this.start();
+
+        this.nezet = new GuiNezet();
+        this.modell = new AjtosJatek();
+
+        this.guiBeallitas();
+        this.valasztas();
     }
 
-    private void start() {
-        /* Set the Nimbus look and feel */
+    private void valasztas() {
+        JButton gomb1 = nezet.getAjto1_btn();
+
+        gomb1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modell.valasztas(0);
+            }
+        });
+
+        JButton gomb2 = nezet.getAjto2_btn();
+
+        gomb2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modell.valasztas(1);
+            }
+        });
+
+        JButton gomb3 = nezet.getAjto3_btn();
+
+        gomb3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modell.valasztas(2);
+            }
+        });
+    }
+
+    private void guiBeallitas() {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

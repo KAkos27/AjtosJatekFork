@@ -29,4 +29,12 @@ public class AjtosJatek {
 
         return kincs;
     }
+
+    public void valasztas(int valasztas) {
+        if (ajtok[valasztas].isKincs()) {
+            System.out.println("siker");
+        } else {
+            System.out.println("nem siker");
+        }
+    }
 }

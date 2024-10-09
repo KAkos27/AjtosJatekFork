@@ -1,9 +1,23 @@
 package nezet;
 
+import javax.swing.JButton;
+
 public class GuiNezet extends javax.swing.JFrame {
 
     public GuiNezet() {
         initComponents();
+    }
+
+    public JButton getAjto1_btn() {
+        return ajto1_btn;
+    }
+
+    public JButton getAjto2_btn() {
+        return ajto2_btn;
+    }
+
+    public JButton getAjto3_btn() {
+        return ajto3_btn;
     }
 
     @SuppressWarnings("unchecked")
