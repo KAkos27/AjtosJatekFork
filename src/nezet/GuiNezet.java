@@ -1,23 +1,47 @@
 package nezet;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class GuiNezet extends javax.swing.JFrame {
 
     public GuiNezet() {
+
         initComponents();
     }
 
     public JButton getAjto1_btn() {
+
         return ajto1_btn;
     }
 
     public JButton getAjto2_btn() {
+
         return ajto2_btn;
     }
 
     public JButton getAjto3_btn() {
+
         return ajto3_btn;
+    }
+
+    public int elsoVisszajelzesKiiras(String visszajelzes) {
+
+        return JOptionPane.showOptionDialog(
+                rootPane,
+                visszajelzes,
+                "Válassz!",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new String[]{"Nem", "Igen"},
+                "Nem"
+        );
+
+    }
+
+    public void veglegesVisszajelzes(String visszajelzes) {
+        JOptionPane.showMessageDialog(rootPane, visszajelzes);
     }
 
     @SuppressWarnings("unchecked")
