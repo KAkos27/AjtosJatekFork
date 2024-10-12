@@ -12,10 +12,12 @@ public class Ajto {
     }
 
     public boolean isKincs() {
+
         return kincs;
     }
 
     public int getSZAM() {
+
         return SZAM;
     }
 }

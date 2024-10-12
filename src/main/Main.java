@@ -2,7 +2,7 @@ package main;
 
 import vezerlo.AjtosJatekVezerlo;
 
-public class AjtosFejtoro {
+public class Main {
 
     public static void main(String[] args) {
 

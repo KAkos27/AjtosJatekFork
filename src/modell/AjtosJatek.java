@@ -6,8 +6,8 @@ public class AjtosJatek {
 
     private static final Random rnd = new Random();
 
-    private final Ajto[] ajtok;
-    private final boolean[] kincsLehetosegek;
+    private Ajto[] ajtok;
+    private boolean[] kincsLehetosegek;
     private int valasztas;
 
     private int ajtoCserek;
@@ -18,13 +18,8 @@ public class AjtosJatek {
     public AjtosJatek() {
 
         this.valasztas = -1;
-        this.kincsLehetosegek = setKincsLehetosegek();
 
-        this.ajtok = new Ajto[]{
-            new Ajto(0, this.kincsLehetosegek[0]),
-            new Ajto(1, this.kincsLehetosegek[1]),
-            new Ajto(2, this.kincsLehetosegek[2])
-        };
+        this.alapertekBeallitas();
     }
 
     private boolean[] setKincsLehetosegek() {
@@ -37,18 +32,32 @@ public class AjtosJatek {
         return kincs;
     }
 
+    public final void alapertekBeallitas() {
+
+        this.kincsLehetosegek = setKincsLehetosegek();
+
+        this.ajtok = new Ajto[]{
+            new Ajto(0, this.kincsLehetosegek[0]),
+            new Ajto(1, this.kincsLehetosegek[1]),
+            new Ajto(2, this.kincsLehetosegek[2])
+        };
+    }
+
     public String veglegesValasztas(int ajtoCsere) {
 
         String visszajelzes = "Gratulálok!\nMegtaláltad a kincset";
         String uresAjtoSzoveg = "Sajnom nem talált :(";
 
         if (ajtoCsere == 0) {
-            this.eredetiAjtok++;
-            this.eredetiAjtoGyozelmek += ajtok[this.valasztas].isKincs() ? 1 : 0;
-        } else {
+
             this.valasztas = keresMasikAjtot().getSZAM();
             this.ajtoCserek++;
             this.ajtoCsereGyozelmek += ajtok[this.valasztas].isKincs() ? 1 : 0;
+
+        } else {
+
+            this.eredetiAjtok++;
+            this.eredetiAjtoGyozelmek += ajtok[this.valasztas].isKincs() ? 1 : 0;
         }
 
         visszajelzes = ajtok[this.valasztas].isKincs() ? visszajelzes : uresAjtoSzoveg;
@@ -60,6 +69,7 @@ public class AjtosJatek {
         Ajto uresAjto = ajtok[this.valasztas];
 
         for (Ajto ajto : ajtok) {
+
             if (ajto.getSZAM() != valasztas && !ajto.isKincs()) {
                 uresAjto = ajto;
             }
@@ -74,6 +84,7 @@ public class AjtosJatek {
         Ajto masikAjto = ajtok[this.valasztas];
 
         for (Ajto ajto : ajtok) {
+
             if (ajto.getSZAM() != valasztas && ajto.getSZAM() != uresAjto.getSZAM()) {
                 masikAjto = ajto;
             }
@@ -83,6 +94,7 @@ public class AjtosJatek {
     }
 
     public String uresAjtotMegmutat() {
+
         int valasztasSzam = this.valasztas + 1;
 
         String visszajelzes = "A választásod a(z) " + valasztasSzam + ". ajtó\nA(z) ";
@@ -99,22 +111,27 @@ public class AjtosJatek {
     }
 
     public void setValasztas(int valasztas) {
+
         this.valasztas = valasztas;
     }
 
     public int getAjtoCserek() {
+
         return ajtoCserek;
     }
 
     public int getAjtoCsereGyozelmek() {
+
         return ajtoCsereGyozelmek;
     }
 
     public int getEredetiAjtok() {
+
         return eredetiAjtok;
     }
 
     public int getEredetiAjtoGyozelmek() {
+
         return eredetiAjtoGyozelmek;
     }
 }

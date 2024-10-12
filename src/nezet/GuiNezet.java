@@ -46,6 +46,11 @@ public class GuiNezet extends javax.swing.JFrame {
         return nyertCserevel_txf;
     }
 
+    public JButton getUjra_btn() {
+
+        return ujra_btn;
+    }
+
     public int elsoVisszajelzesKiiras(String visszajelzes) {
 
         return JOptionPane.showOptionDialog(
@@ -62,6 +67,7 @@ public class GuiNezet extends javax.swing.JFrame {
     }
 
     public void veglegesVisszajelzes(String visszajelzes) {
+
         JOptionPane.showMessageDialog(rootPane, visszajelzes);
     }
 
@@ -308,6 +314,7 @@ public class GuiNezet extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

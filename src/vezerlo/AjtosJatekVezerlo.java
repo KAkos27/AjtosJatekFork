@@ -9,8 +9,8 @@ import nezet.GuiNezet;
 
 public class AjtosJatekVezerlo {
 
-    private GuiNezet nezet;
-    private AjtosJatek modell;
+    private final GuiNezet nezet;
+    private final AjtosJatek modell;
 
     public AjtosJatekVezerlo() {
 
@@ -19,6 +19,7 @@ public class AjtosJatekVezerlo {
 
         this.guiBeallitas();
         this.esemenykezlesekMeghivasa();
+        this.ujrakezdesEsemenykezeles();
     }
 
     private void esemenykezlesekMeghivasa() {
@@ -36,9 +37,40 @@ public class AjtosJatekVezerlo {
 
     }
 
+    private void gombElerhetosegKezeles(boolean elerheto) {
+
+        JButton gomb;
+
+        gomb = nezet.getAjto1_btn();
+        gomb.setEnabled(elerheto);
+
+        gomb = nezet.getAjto2_btn();
+        gomb.setEnabled(elerheto);
+
+        gomb = nezet.getAjto3_btn();
+        gomb.setEnabled(elerheto);
+    }
+
+    private void ujrakezdesEsemenykezeles() {
+
+        JButton gomb = nezet.getUjra_btn();
+
+        gomb.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+
+                gombElerhetosegKezeles(true);
+                modell.alapertekBeallitas();
+            }
+
+        });
+    }
+
     private void valasztasEsemenykezeles(JButton gomb, int ajtoSzam) {
 
         gomb.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -49,7 +81,8 @@ public class AjtosJatekVezerlo {
 
                 JTextField csereltStat = nezet.getCsereltStat_txf();
                 JTextField nemCsereltStat = nezet.getNemCsereltStat_txf();
-                JTextField nyertCserevel = nezet.getNyertCsereNelkul_txf();
+
+                JTextField nyertCserevel = nezet.getNyertCserevel_txf();
                 JTextField nyertCsereNelkuk = nezet.getNyertCsereNelkul_txf();
 
                 csereltStat.setText("" + modell.getAjtoCserek());
@@ -57,6 +90,8 @@ public class AjtosJatekVezerlo {
 
                 nyertCserevel.setText("" + modell.getAjtoCsereGyozelmek());
                 nyertCsereNelkuk.setText("" + modell.getEredetiAjtoGyozelmek());
+
+                gombElerhetosegKezeles(false);
 
             }
         });
@@ -87,6 +122,8 @@ public class AjtosJatekVezerlo {
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+
+            @Override
             public void run() {
                 nezet.setVisible(true);
             }
