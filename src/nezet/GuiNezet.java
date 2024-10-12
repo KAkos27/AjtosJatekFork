@@ -2,6 +2,7 @@ package nezet;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class GuiNezet extends javax.swing.JFrame {
 
@@ -23,6 +24,26 @@ public class GuiNezet extends javax.swing.JFrame {
     public JButton getAjto3_btn() {
 
         return ajto3_btn;
+    }
+
+    public JTextField getCsereltStat_txf() {
+
+        return csereltStat_txf;
+    }
+
+    public JTextField getNemCsereltStat_txf() {
+
+        return nemCsereltStat_txf;
+    }
+
+    public JTextField getNyertCsereNelkul_txf() {
+
+        return nyertCsereNelkul_txf;
+    }
+
+    public JTextField getNyertCserevel_txf() {
+
+        return nyertCserevel_txf;
     }
 
     public int elsoVisszajelzesKiiras(String visszajelzes) {

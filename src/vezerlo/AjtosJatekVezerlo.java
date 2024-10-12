@@ -3,6 +3,7 @@ package vezerlo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import modell.AjtosJatek;
 import nezet.GuiNezet;
 
@@ -40,10 +41,23 @@ public class AjtosJatekVezerlo {
         gomb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 modell.setValasztas(ajtoSzam);
                 int ajtoCsere = nezet.elsoVisszajelzesKiiras(modell.uresAjtotMegmutat());
 
                 nezet.veglegesVisszajelzes(modell.veglegesValasztas(ajtoCsere));
+
+                JTextField csereltStat = nezet.getCsereltStat_txf();
+                JTextField nemCsereltStat = nezet.getNemCsereltStat_txf();
+                JTextField nyertCserevel = nezet.getNyertCsereNelkul_txf();
+                JTextField nyertCsereNelkuk = nezet.getNyertCsereNelkul_txf();
+
+                csereltStat.setText("" + modell.getAjtoCserek());
+                nemCsereltStat.setText("" + modell.getEredetiAjtok());
+
+                nyertCserevel.setText("" + modell.getAjtoCsereGyozelmek());
+                nyertCsereNelkuk.setText("" + modell.getEredetiAjtoGyozelmek());
+
             }
         });
     }
